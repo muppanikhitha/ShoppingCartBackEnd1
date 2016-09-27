@@ -3,20 +3,19 @@ package com.niit.shoppingcart.dao;
 import java.util.List;
 
 
+
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.shoppingcart.model.UserDetails;
-
-@EnableTransactionManagement
 @Repository("userDetailsDAO")
-@Component
+@EnableTransactionManagement
+
 public class UserDetailsDAOImpl implements UserDetailsDAO {
 	
 	@Autowired
@@ -28,7 +27,7 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 		try {
 			sessionFactory.getCurrentSession().save(userDetails);
 			return true;
-		} catch (Exception e) {
+		} catch (HibernateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
@@ -40,7 +39,7 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 		try {
 			sessionFactory.getCurrentSession().update(userDetails);
 			return true;
-		} catch (Exception e) {
+		} catch (HibernateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
@@ -51,7 +50,7 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 		try {
 			sessionFactory.getCurrentSession().delete(userDetails);
 			return true;
-		} catch (Exception e) {
+		} catch (HibernateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
@@ -77,5 +76,23 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		return query.list();
 	}
+	
+	@Transactional
+	public boolean isValidUser(String id, String password) {
+		
+		String hql="from UserDetails where id='"+id+"' and password='"+password+"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<UserDetails>  list=query.list();
+		if(list!=null|| !list.isEmpty()){
+	
+			return true;
+		}
+			
+				return false;
+			
+		}
+		
+		
+	
 
 }

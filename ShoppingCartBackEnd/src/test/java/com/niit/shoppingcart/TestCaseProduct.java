@@ -2,24 +2,41 @@ package com.niit.shoppingcart;
 
 import static org.junit.Assert.*;
 
-
-
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.niit.shoppingcart.dao.CategoryDAO;
 import com.niit.shoppingcart.dao.ProductDAO;
+import com.niit.shoppingcart.dao.SupplierDAO;
+import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Product;
+import com.niit.shoppingcart.model.Supplier;
 
 public class TestCaseProduct {
 
 	@Autowired
 	ProductDAO productDAO;
+	
+	@Autowired
+	CategoryDAO categoryDAO;
+	
 	@Autowired
 	Product product;
+	
+	@Autowired
+Supplier supplier;
+	
+	@Autowired
+	SupplierDAO supplierDAO;
+	
+	@Autowired
+	Category category ; 
 	
 	AnnotationConfigApplicationContext context;
 	
@@ -34,33 +51,58 @@ public class TestCaseProduct {
 	}
 	
 	
-	
-	/*@Test
+	@Test
 	public void productAddTestCase()
 	{
-		product.setId("PRO_004");
-		product.setName("hp");
-		product.setDescription("this is hp");
-		product.setPrice("65000");
+	/*Category category=new Category();
+		category.setCat_id("CAT002");
+		category.setCat_name("mobile");
+		category.setCat_description("MOBILES");
 		
-		assertEquals(productDAO.save(product),true);
-	}
+		
+		Supplier supplier=new Supplier();
+		supplier.setSup_id("SUP002");
+		supplier.setSup_name("RELAINCE");
+		supplier.setSup_address("hyd");
 	
+		Product product=new Product();*/
+		
+		
+		product.setPro_id("PRO_01");
+		product.setPro_name("lenovo");
+		product.setPro_description("lenovo gifts");
+		product.setPro_price("35000"); 
+		product.setCategory_id("CAT_01");
+		product.setSupplier_id("sup_01");
+		 //productDAO.save(product);
+		 assertEquals(productDAO.save(product),true);
+		/*(category.getProducts()).add(product);
+		
+		
+		(supplier.getProducts()).add(product);
+	
+		
+		 categoryDAO.save(category);
+		supplierDAO.save(supplier);*/
+	
+	}
+
+	/*
 	
 	@Test
 	public void productListTestCase()
 	{
 		List<Product> list = productDAO.list();
 		int rowCount = list.size();
-		assertEquals("Product List Test Case", rowCount,3);
+		assertEquals("Product List Test Case", rowCount,2);
 	}
 	
 	@Test
 	public void deleteTestCase(){
-		product.setId("PRO_002");
+		product.setId("PRO_001");
 		assertEquals(productDAO.delete(product),true);
 	}
-	/*
+	
 	@Test
 	public void updateTestCase(){
 		product.setId("PRO_002");
@@ -70,13 +112,13 @@ public class TestCaseProduct {
 		assertEquals(productDAO.update(product),true);
 	}
 */
-	@Test
+	/*@Test
 	public void getProductTestCase(){
 		product=productDAO.get("PRO_003");
 		System.out.println(product.getDescription());
-		assertEquals(product.getName(),"lenovo");
+		assertEquals(product.getName(),"dell");
 	}
-	
+	*/
 	
 	
 	

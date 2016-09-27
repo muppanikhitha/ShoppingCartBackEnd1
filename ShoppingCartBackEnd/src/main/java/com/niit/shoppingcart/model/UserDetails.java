@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name="UserDetails")
+@Table
 @Component
 public class UserDetails {
 	@Id
@@ -17,6 +17,12 @@ public class UserDetails {
 	private String mail;
 	private String contact;
 	private String address;
+	private String role="ROLE_USER";
+	
+	public String getRole() {
+		return role;
+	}
+	
 	public String getId() {
 		return id;
 	}

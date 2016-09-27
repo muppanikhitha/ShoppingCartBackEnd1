@@ -2,6 +2,10 @@ package com.niit.shoppingcart;
 
 import static org.junit.Assert.*;
 
+
+
+
+
 import java.util.List;
 
 import org.junit.Before;
@@ -12,10 +16,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.niit.shoppingcart.dao.UserDetailsDAO;
 import com.niit.shoppingcart.model.UserDetails;
 
-
-
-
 public class TestCaseUserDetails {
+
 	@Autowired
 	UserDetailsDAO userDetailsDAO;
 	@Autowired
@@ -32,55 +34,59 @@ public class TestCaseUserDetails {
 		userDetailsDAO = (UserDetailsDAO)context.getBean("userDetailsDAO");
 		userDetails = (UserDetails)context.getBean("userDetails");
 	}
-
-	/*@Test
-	public void userDetailsListTestCase()
-	{
-			List<UserDetails> list = userDetailsDAO.list();
-		int rowCount = list.size();
-		assertEquals("UserDetails List Test Case", rowCount,2);
-	}
 	
-@Test
+	@Test
 	public void userDetailsAddTestCase()
 	{
-		userDetails.setId("US_003");
-		userDetails.setName("NIKHItha");
-		userDetails.setPassword(" n30");
-		userDetails.setMail("ni30@gmail");
-		userDetails.setContact(" 2258345");	
-		userDetails.setAddress(" abcdeh");
-		
-		boolean flag = userDetailsDAO.save(userDetails);
-		assertEquals(flag, true);
+		userDetails.setId("use_03");
+		userDetails.setName("nikhitha");
+		userDetails.setPassword("ammulu");
+		userDetails.setMail("ammulu@com");
+		userDetails.setContact("7337528485");
+		userDetails.setAddress("ongole");
 	
+		assertEquals(userDetailsDAO.save(userDetails),true);
 	}
+	
+	
+	/*
 	@Test
-	public void deleteTestCase(){
-		userDetails.setId("US_001");
-		assertEquals(userDetailsDAO.delete(userDetails),true);
-	}
+	public void userDetailsListTestCase()
+	{
+		List<UserDetails> list = userDetailsDAO.list();
+		int rowCount = list.size();
+		assertEquals("UserDetails List Test Case", rowCount,2);
+	}*/
 	
-	*/@Test
+	/*@Test
+	public void deleteTestCase(){
+		userDetails.setId("MOB_002");
+		assertEquals(userDetailsDAO.delete(userDetails),true);
+	}*/
+	
+	@Test
 	public void updateTestCase(){
-		userDetails.setId("US_002");
-		userDetails.setName("asu");
-		userDetails.setPassword(" asu");
-			userDetails.setMail(" susa@gmail.com");
-				userDetails.setContact(" 4583");
-					userDetails.setAddress(" aaqwr");
+		userDetails.setId("use_01");
+		userDetails.setName("nikhitha");
+		userDetails.setPassword("nikhi");
+		userDetails.setMail("nikhi.com");
+		userDetails.setContact("90275857");
+		userDetails.setAddress("madinaguda");
 		assertEquals(userDetailsDAO.update(userDetails),true);
 	}
-	
-/*	@Test
+
+	/*@Test
 	public void getUserDetailsTestCase(){
-	userDetails=userDetailsDAO.get("US_003");
+	userDetails=userDetailsDAO.get("us_001");
 	System.out.println(userDetails.getAddress());
-	assertEquals(userDetails.getName(), "abcdeh");
+	System.out.println(userDetails.getMail());
+	assertEquals(userDetails.getName(), "Roope");
 	}
+	*/
 	
 	
 	
 	
-*/
+	
+
 }
