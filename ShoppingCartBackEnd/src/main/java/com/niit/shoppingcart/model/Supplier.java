@@ -12,14 +12,14 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table
+@Table(name="supplier")
 @Component
 public class Supplier {
 	
 	@Id
-	private String sup_id;
-	private String sup_name;
-	private String sup_address;
+	private String supe_id;
+	private String supe_name;
+	private String supe_address;
 	
 	@OneToMany(mappedBy = "supplier", fetch=FetchType.EAGER)
 	private Set<Product> products;
@@ -30,24 +30,24 @@ public class Supplier {
 	public void setProducts(Set<Product> products) {
 		this.products = products;
 	}
+	public String getSupe_id() {
+		return supe_id;
+	}
+	public void setSupe_id(String supe_id) {
+		this.supe_id = supe_id;
+	}
+	public String getSupe_name() {
+		return supe_name;
+	}
+	public void setSupe_name(String supe_name) {
+		this.supe_name = supe_name;
+	}
+	public String getSupe_address() {
+		return supe_address;
+	}
+	public void setSupe_address(String supe_address) {
+		this.supe_address = supe_address;
+	}
 	
-	public String getSup_id() {
-		return sup_id;
-	}
-	public void setSup_id(String sup_id) {
-		this.sup_id = sup_id;
-	}
-	public String getSup_name() {
-		return sup_name;
-	}
-	public void setSup_name(String sup_name) {
-		this.sup_name = sup_name;
-	}
-	public String getSup_address() {
-		return sup_address;
-	}
-	public void setSup_address(String sup_address) {
-		this.sup_address = sup_address;
-	}
-
+	
 }

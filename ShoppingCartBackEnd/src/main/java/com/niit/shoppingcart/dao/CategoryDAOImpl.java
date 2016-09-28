@@ -31,7 +31,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 			sessionFactory.getCurrentSession().save(category);
 			return true;
 		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			return false;
 		}
@@ -43,7 +43,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 			sessionFactory.getCurrentSession().update(category);
 			return true;
 		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			return false;
 		}
@@ -54,14 +54,14 @@ public class CategoryDAOImpl implements CategoryDAO {
 			sessionFactory.getCurrentSession().delete(category);
 			return true;
 		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			return false;
 		}
 	}
 	@Transactional
-	public Category get(String cat_id) {
-		String  hql = " from Category where id ="+"'"+cat_id+"'";
+	public Category get(String caty_id) {
+		String  hql = " from Category where id ="+"'"+caty_id+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<Category> list = query.list();
 		if(list == null || list.isEmpty())
@@ -81,8 +81,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 	
 	@Transactional
-	public Category getByName(String cat_name){
-		String hql= " from Category where cat_name ="+"'"+cat_name+"'";
+	public Category getByName(String caty_name){
+		String hql= " from Category where cat_name ="+"'"+caty_name+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<Category> list = (List<Category>) query.list();
 		if(list != null && !list.isEmpty())

@@ -46,9 +46,9 @@ public class TestCaseCategory {
 	public void categoryAddTestCase()
 	{
 	
-			category.setCat_id("CAT_02");
-			category.setCat_name("mobiles");
-			category.setCat_description("apple");
+			category.setCaty_id("CAT_01");
+			category.setCaty_name("mobiles");
+			category.setCaty_description("apple");
 		assertEquals(categoryDAO.save(category), true);
 	}
 	
@@ -71,9 +71,9 @@ public class TestCaseCategory {
 	/*
 	@Test
 	public void updateTestCase(){
-		category.setId("MOB_003");
-		category.setName("asus");
-		category.setDescription("this is asus phone");
+		category.setCaty_id("MOB_003");
+		category.setCaty_name("asus");
+		category.setCaty_description("this is asus phone");
 		assertEquals(categoryDAO.update(category),true);
 	}*/
 

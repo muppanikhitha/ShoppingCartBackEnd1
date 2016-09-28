@@ -8,8 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table
@@ -17,35 +19,28 @@ import org.springframework.stereotype.Component;
 public class Product {
 
 	@Id
-	private String pro_id;
-	private String pro_name;
-	private String pro_description;
-	private String pro_price;
-	private String category_id;
-		private String supplier_id;
+	private String prt_id;
+	private String prt_name;
+	private String prt_description;
+	private String prt_price;
+	private String catey_id;
+		private String suppr_id;
+		@Transient
+		private MultipartFile image;
 		
-		public String getCategory_id() {
-		return category_id;
-	}
-	public void setCategory_id(String category_id) {
-		this.category_id = category_id;
-	}
-		
-
-	public String getSupplier_id() {
-			return supplier_id;
+	public MultipartFile getImage() {
+			return image;
 		}
-		public void setSupplier_id(String supplier_id) {
-			this.supplier_id = supplier_id;
+		public void setImage(MultipartFile image) {
+			this.image = image;
 		}
-	
 	@ManyToOne
-	@JoinColumn(name="category_id" ,updatable=false,insertable=false,nullable=false)
+	@JoinColumn(name="catey_id" ,updatable=false,insertable=false,nullable=false)
 	private Category category;
 	
 	
 	@ManyToOne
-	@JoinColumn(name="supplier_id", updatable=false,insertable=false,nullable=false)
+	@JoinColumn(name="suppr_id", updatable=false,insertable=false,nullable=false)
 	private Supplier supplier;
 	
 		 public Supplier getSupplier() {
@@ -62,30 +57,41 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	
-	public String getPro_price() {
-		return pro_price;
+	public String getPrt_id() {
+		return prt_id;
 	}
-	public void setPro_price(String pro_price) {
-		this.pro_price = pro_price;
+	public void setPrt_id(String prt_id) {
+		this.prt_id = prt_id;
 	}
-	public String getPro_id() {
-		return pro_id;
+	public String getPrt_name() {
+		return prt_name;
 	}
-	public void setPro_id(String pro_id) {
-		this.pro_id = pro_id;
+	public void setPrt_name(String prt_name) {
+		this.prt_name = prt_name;
 	}
-	public String getPro_name() {
-		return pro_name;
+	public String getPrt_description() {
+		return prt_description;
 	}
-	public void setPro_name(String pro_name) {
-		this.pro_name = pro_name;
+	public void setPrt_description(String prt_description) {
+		this.prt_description = prt_description;
 	}
-	public String getPro_description() {
-		return pro_description;
+	public String getPrt_price() {
+		return prt_price;
 	}
-	public void setPro_description(String pro_description) {
-		this.pro_description = pro_description;
+	public void setPrt_price(String prt_price) {
+		this.prt_price = prt_price;
+	}
+	public String getCatey_id() {
+		return catey_id;
+	}
+	public void setCatey_id(String catey_id) {
+		this.catey_id = catey_id;
+	}
+	public String getSuppr_id() {
+		return suppr_id;
+	}
+	public void setSuppr_id(String suppr_id) {
+		this.suppr_id = suppr_id;
 	}
 	
 	

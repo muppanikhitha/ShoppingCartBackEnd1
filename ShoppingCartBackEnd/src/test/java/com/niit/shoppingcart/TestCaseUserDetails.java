@@ -38,12 +38,12 @@ public class TestCaseUserDetails {
 	@Test
 	public void userDetailsAddTestCase()
 	{
-		userDetails.setId("use_03");
+		userDetails.setId("use_01");
 		userDetails.setName("nikhitha");
 		userDetails.setPassword("ammulu");
-		userDetails.setMail("ammulu@com");
-		userDetails.setContact("7337528485");
-		userDetails.setAddress("ongole");
+		userDetails.setMail("nikhitha.com");
+		userDetails.setContact("902757");
+		userDetails.setAddress("linpally");
 	
 		assertEquals(userDetailsDAO.save(userDetails),true);
 	}
@@ -66,10 +66,10 @@ public class TestCaseUserDetails {
 	
 	@Test
 	public void updateTestCase(){
-		userDetails.setId("use_01");
-		userDetails.setName("nikhitha");
-		userDetails.setPassword("nikhi");
-		userDetails.setMail("nikhi.com");
+		userDetails.setId("us_001");
+		userDetails.setName("Roope");
+		userDetails.setPassword("ro143");
+		userDetails.setMail("roopes.com");
 		userDetails.setContact("90275857");
 		userDetails.setAddress("madinaguda");
 		assertEquals(userDetailsDAO.update(userDetails),true);

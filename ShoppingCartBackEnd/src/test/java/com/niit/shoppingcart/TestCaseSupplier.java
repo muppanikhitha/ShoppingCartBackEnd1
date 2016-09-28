@@ -33,9 +33,9 @@ public class TestCaseSupplier {
 	@Test
 	public void supplierAddTestCase()
 	{
-		supplier.setSup_id("sup_02");
-		supplier.setSup_name("mouni");
-		supplier.setSup_address("this hyd");
+		supplier.setSupe_id("SUP_02");
+		supplier.setSupe_name("mouni");
+		supplier.setSupe_address("this hyd");
 		assertEquals(supplierDAO.save(supplier),true);
 	}
 	
@@ -51,15 +51,15 @@ public class TestCaseSupplier {
 	
 	/*@Test
 	public void deleteTestCase(){
-		supplier.setSup_id("MOB_002");
+		supplier.setSupe_id("MOB_002");
 		assertEquals(supplierDAO.delete(supplier),true);
 	}*/
 	
 /*	@Test
 	public void updateTestCase(){
-		supplier.setSup_id("SUP_001");
-		supplier.setSup_name("Micro");
-		supplier.setSup_address("this is micro");
+		supplier.setSupe_id("SUP_001");
+		supplier.setSupe_name("Micro");
+		supplier.setSupe_address("this is micro");
 		assertEquals(supplierDAO.update(supplier),true);
 	}*/
 /*

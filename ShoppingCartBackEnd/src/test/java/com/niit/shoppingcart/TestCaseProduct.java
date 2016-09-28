@@ -68,12 +68,12 @@ Supplier supplier;
 		Product product=new Product();*/
 		
 		
-		product.setPro_id("PRO_01");
-		product.setPro_name("lenovo");
-		product.setPro_description("lenovo gifts");
-		product.setPro_price("35000"); 
-		product.setCategory_id("CAT_01");
-		product.setSupplier_id("sup_01");
+		product.setPrt_id("PRO_02");
+		product.setPrt_name("electronics");
+		product.setPrt_description("charger");
+		product.setPrt_price("35000"); 
+		product.setCatey_id("CAT_01");
+		product.setSuppr_id("SUP_01");
 		 //productDAO.save(product);
 		 assertEquals(productDAO.save(product),true);
 		/*(category.getProducts()).add(product);

@@ -16,13 +16,39 @@ import org.springframework.stereotype.Component;
 public class Category {
 
 	@Id
-	private String cat_id;
+	private String caty_id;
 	@NotEmpty
-	private String cat_name;
+	private String caty_name;
 	@NotEmpty
-	private String cat_description;
+	private String caty_description;
 	
 	
+	
+
+	public String getCaty_id() {
+		return caty_id;
+	}
+
+	public void setCaty_id(String caty_id) {
+		this.caty_id = caty_id;
+	}
+
+	public String getCaty_name() {
+		return caty_name;
+	}
+
+	public void setCaty_name(String caty_name) {
+		this.caty_name = caty_name;
+	}
+
+	public String getCaty_description() {
+		return caty_description;
+	}
+
+	public void setCaty_description(String caty_description) {
+		this.caty_description = caty_description;
+	}
+
 	
 
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="category")
@@ -35,29 +61,8 @@ public class Category {
 		this.products = products;
 	}
 
-	public String getCat_id() {
-		return cat_id;
-	}
-
-	public void setCat_id(String cat_id) {
-		this.cat_id = cat_id;
-	}
-
-	public String getCat_name() {
-		return cat_name;
-	}
-
-	public void setCat_name(String cat_name) {
-		this.cat_name = cat_name;
-	}
-
-	public String getCat_description() {
-		return cat_description;
-	}
-
-	public void setCat_description(String cat_description) {
-		this.cat_description = cat_description;
-	}
+	
+	
 
 	
 
